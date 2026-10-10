@@ -74,7 +74,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .skip-link:focus { top: var(--space-4); }
 
 /* Header */
-.site-header { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--bg) 85%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding-top: env(safe-area-inset-top, 0px); }
+.site-header { position: sticky; top: 0; z-index: 1000; isolation: isolate; background: rgb(10 10 10 / 76%); border-bottom: 1px solid var(--border); -webkit-backdrop-filter: blur(18px) saturate(150%); backdrop-filter: blur(18px) saturate(150%); }
 .header-inner { display: flex; align-items: center; justify-content: space-between; height: 3.5rem; position: relative; }
 .brand { font-family: var(--font-mono); font-weight: 700; text-decoration: none; padding: var(--space-1) var(--space-2); }
 .header-actions { display: flex; align-items: center; gap: var(--space-2); }
@@ -604,21 +604,20 @@ details > summary h3 {
 
 .resume-main {
   width: 100%;
-  max-width: 76rem;
-  padding-inline: 0.5rem;
-}
-
-.resume-title {
-  margin: 1.5rem 0 1rem;
-  font-size: 1.75rem;
+  max-width: 64rem;
+  padding-inline: clamp(1rem, 4vw, 2rem);
 }
 
 .resume-viewer {
   width: 100%;
-  height: min(80vh, 70rem);
-  min-height: 35rem;
+  max-width: 60rem;
+  height: 72vh;
+  min-height: 30rem;
+  max-height: 58rem;
+  margin: 0 auto;
   overflow: hidden;
   border: 1px solid var(--border);
+  border-radius: var(--radius);
   background: #fff;
 }
 
@@ -630,26 +629,22 @@ details > summary h3 {
   background: #fff;
 }
 
+@media (max-width: 640px) {
+  .resume-main {
+    padding-inline: 1rem;
+  }
+
+  .resume-viewer {
+    height: 68vh;
+    min-height: 24rem;
+  }
+}
+
 .resume-download {
   margin: 0;
   padding: 0.75rem 0;
   text-align: right;
   font-size: 0.8rem;
-}
-
-@media (max-width: 640px) {
-  .resume-main {
-    padding-inline: 0.25rem;
-  }
-
-  .resume-viewer {
-    height: 75vh;
-    min-height: 28rem;
-  }
-}
-
-#top.hero {
-  margin-top: 8rem;
 }
 
 @media (max-width: 600px) {
@@ -743,4 +738,75 @@ main,
   .page-pop-in {
     animation: none;
   }
+}
+
+/* Mobile: pautan navigasi terus kelihatan, tanpa butang hamburger */
+@media (max-width: 639px) {
+  .header-inner {
+    gap: 0.5rem;
+  }
+
+  .brand {
+    flex: 0 0 auto;
+  }
+
+  .site-nav,
+  .site-nav.open {
+    position: static !important;
+    display: flex !important;
+    flex: 1 1 auto;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.35rem, 2.5vw, 0.75rem);
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    white-space: nowrap;
+  }
+
+  .site-nav a {
+    padding: 0 !important;
+    font-size: clamp(0.65rem, 2.7vw, 0.8rem);
+  }
+
+  .nav-toggle {
+    display: none !important;
+  }
+
+  .header-actions {
+    flex: 0 0 auto;
+  }
+
+  .icon-btn {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+/* Navbar ikut warna tema */
+.site-header {
+  color: var(--fg);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+}
+
+.site-nav a,
+.site-header .brand,
+.site-header .icon-btn {
+  color: var(--fg);
+}
+
+.site-nav a:hover,
+.site-nav a.active {
+  color: var(--fg);
+}
+
+:root[data-theme="light"] .site-header {
+  background: rgb(255 255 255 / 88%);
+}
+
+:root[data-theme="dark"] .site-header {
+  background: rgb(10 10 10 / 82%);
 }
