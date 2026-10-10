@@ -277,4 +277,19 @@ if ("scrollRestoration" in history) {
     });
   }
 
+  // Popup fade-in pada elemen halaman semasa halaman mula dibuka
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    var popTargets = document.querySelectorAll(
+      ".site-header, main > section, main .entry, .resume-toolbar, .resume-viewer, .resume-paper, .site-footer"
+    );
+
+    popTargets.forEach(function (element, index) {
+      element.style.setProperty(
+        "--pop-delay",
+        Math.min(index, 12) * 55 + "ms"
+      );
+      element.classList.add("page-pop-in");
+    });
+  }
+
 })();
