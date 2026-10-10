@@ -43,11 +43,16 @@ body {
   background: var(--bg);
   color: var(--fg);
   font-family: var(--font-sans);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   line-height: 1.7;
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
   transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+body,
+body * {
+  font-family: "Google Sans Flex", sans-serif !important;
 }
 
 a { color: inherit; text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 3px; transition: text-decoration-color 0.15s ease, color 0.15s ease; }
@@ -289,5 +294,342 @@ details.collapse[open] > .collapse-body {
 @media (prefers-reduced-motion: reduce) {
   details.collapse[open] > .collapse-body {
     animation: none;
+  }
+}
+/* ===== Banner + overlapping avatar ===== */
+:root {
+  --banner-height: 11rem;       /* banner height */
+  --banner-pos: center;         /* which part of the image shows: top / center / bottom */
+}
+
+.hero { display: block; padding: 1.5rem 0 2rem; }
+
+.banner {
+  position: relative;
+  z-index: 0;
+  width: 100vw;
+  height: 14rem;
+  margin-left: calc(50% - 50vw);
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background: var(--card);
+}
+
+.banner-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--banner-pos);
+  transition: transform 0.6s ease;
+}
+
+.banner:hover .banner-img { transform: scale(1.03); }
+
+.hero-info { position: relative;
+  z-index: 1;
+  padding: 0 1.5rem;
+}
+
+.hero-info .avatar {
+  position: relative;
+  z-index: 2;
+  display: block;
+  margin-top: -4rem;
+}
+
+.hero-info h1 {
+  margin-top: 0.5rem;
+}
+
+.hero-info .subtitle {
+  font-size: 1rem;
+}
+
+@media (max-width: 479px) {
+  :root {
+    --banner-height: 10rem;
+  }
+
+  .hero-info {
+    padding-inline: 1rem;
+  }
+
+  .hero-info .avatar {
+    margin-top: -3.5rem;
+  }
+}
+
+/* Banner kompak dengan avatar bertindih */
+:root {
+  --banner-height: 7rem;
+  --banner-pos: center;
+}
+
+.hero {
+  display: block;
+  padding: 1rem 0 1.5rem;
+  isolation: isolate;
+}
+
+.banner {
+  position: relative;
+  z-index: 0;
+  width: 100vw;
+  height: var(--banner-height);
+  margin-left: calc(50% - 50vw);
+  overflow: hidden;
+  background: var(--card);
+}
+
+.banner-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--banner-pos);
+}
+
+.hero-info {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 5rem minmax(0, 1fr);
+  grid-template-rows: auto auto auto;
+  align-items: center;
+  column-gap: 1rem;
+  margin: 0;
+  padding-inline: 1rem;
+}
+
+.hero-info .avatar {
+  grid-column: 1;
+  grid-row: 1 / 4;
+  width: 5rem;
+  height: 5rem;
+  margin: 0;
+}
+
+.hero-info h1 {
+  grid-column: 2;
+  grid-row: 1;
+  font-size: 1.5rem;
+}
+
+.hero-info .subtitle {
+  grid-column: 2;
+  grid-row: 2;
+  margin: 0.2rem 0 0;
+  font-size: 0.9rem;
+}
+
+.hero-info .social {
+  grid-column: 2;
+  grid-row: 3;
+  margin: 0.3rem 0 0;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 479px) {
+  .hero-info {
+    grid-template-columns: 4rem minmax(0, 1fr);
+    column-gap: 0.75rem;
+    padding-inline: 0.75rem;
+  }
+
+  .hero-info .avatar {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .hero-info h1 {
+    font-size: 1.25rem;
+  }
+
+  .hero-info .subtitle {
+    font-size: 0.95rem;
+  }
+}
+
+.hero-info h1 {
+  font-size: 1.35rem;
+}
+
+.hero-info .subtitle {
+  font-size: 0.9rem;
+}
+
+.hero-info .social {
+  font-size: 0.85rem;
+}
+
+@media (max-width: 480px) {
+  .hero-info h1 {
+    font-size: 1.2rem;
+  }
+
+  .hero-info .subtitle {
+    font-size: 0.8rem;
+  }
+}
+
+.item-details > summary {
+  cursor: pointer;
+}
+
+.item-details > summary h3 {
+  display: inline;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.item-content {
+  padding-top: 0.75rem;
+}
+
+.item-content .card-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+/* Fade-in apabila dibuka dan fade-out apabila ditutup */
+details[open] > :not(summary) {
+  animation: expand-fade-in 240ms ease both;
+}
+
+details.is-closing > :not(summary) {
+  animation: expand-fade-out 240ms ease both;
+}
+
+@keyframes expand-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes expand-fade-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  details[open] > :not(summary),
+  details.is-closing > :not(summary) {
+    animation-duration: 1ms;
+  }
+}
+
+/* Saiz teks lebih kompak */
+body {
+  font-size: 0.9rem;
+}
+
+.site-nav a {
+  font-size: 0.85rem;
+}
+
+.hero-info h1 {
+  font-size: 1.35rem;
+}
+
+.hero-info .subtitle,
+.hero-info .social {
+  font-size: 0.85rem;
+}
+
+.section-title {
+  font-size: 1rem;
+}
+
+.entry h3,
+details > summary h3 {
+  font-size: 0.9rem;
+}
+
+.entry h4,
+.entry p,
+.entry li,
+.overview li,
+.item-content,
+.experience-content {
+  font-size: 0.85rem;
+}
+
+.tags li,
+.meta {
+  font-size: 0.75rem;
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 0.85rem;
+  }
+
+  .hero-info h1 {
+    font-size: 1.2rem;
+  }
+
+  .section-title {
+    font-size: 0.95rem;
+  }
+}
+
+.resume-main {
+  width: 100%;
+  max-width: 76rem;
+  padding-inline: 0.5rem;
+}
+
+.resume-title {
+  margin: 1.5rem 0 1rem;
+  font-size: 1.75rem;
+}
+
+.resume-viewer {
+  width: 100%;
+  height: min(80vh, 70rem);
+  min-height: 35rem;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #fff;
+}
+
+.resume-viewer iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #fff;
+}
+
+.resume-download {
+  margin: 0;
+  padding: 0.75rem 0;
+  text-align: right;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 640px) {
+  .resume-main {
+    padding-inline: 0.25rem;
+  }
+
+  .resume-viewer {
+    height: 75vh;
+    min-height: 28rem;
   }
 }

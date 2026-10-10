@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog — R. Farihin</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="./index.html#top" aria-label="Portfolio home"
+          >/</a
+        >
+        <nav id="site-nav" class="site-nav" aria-label="Primary">
+          <a href="./index.html">Portfolio</a>
+          <a href="./links.html">Link</a>
+          <a href="./resume.html">Resume</a>
+          <a class="active" href="./blog.html">Blog</a>
+        </nav>
+        <div class="header-actions">
+          <button
+            id="theme-toggle"
+            class="icon-btn"
+            type="button"
+            aria-label="Switch theme"
+          >
+            <span id="theme-icon" aria-hidden="true">☾</span>
+          </button>
+          <button
+            id="nav-toggle"
+            class="icon-btn nav-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="site-nav"
+            aria-label="Open menu"
+          >
+            <span aria-hidden="true">≡</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="box">
+        <h1 class="section-title">Blog</h1>
+        <p>
+          Notes about projects, software development, and things I’m learning.
+        </p>
+
+        <article class="entry">
+          <h2 class="section-title">Building Averis SDOC</h2>
+          <p class="meta">Project notes</p>
+          <p>
+            How I approached deterministic trade-document checks, exception
+            handling, and evaluation for Averis SDOC.
+          </p>
+        </article>
+
+        <article class="entry">
+          <h2 class="section-title">Connecting Gemma 4 to BigQuery with MCP</h2>
+          <p class="meta">Project notes</p>
+          <p>
+            A look at the retail site-selection agent and how it turns business
+            questions into data queries.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <script src="./js/main.js" defer></script>
+  </body>
+</html>

@@ -1,261 +1,577 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" data-theme="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>R. Farihin Ikhsan — Computer Science Student & Software Developer</title>
-  <meta name="description" content="Computer Science student at UTeM (CGPA 3.83) building functional software, from UI/UX prototypes to secure backends and Google Cloud AI agents.">
-  <meta name="author" content="Raja Farihin Ikhsan bin R Rusli">
-  <meta name="color-scheme" content="dark light">
-  <meta name="theme-color" content="#0a0a0a">
-  <link rel="stylesheet" href="./css/style.css">
-  <script>
-    try { var t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t); } catch (e) {}
-  </script>
-</head>
-<body>
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>R. Farihin — Computer Science Student & Software Developer</title>
+    <meta
+      name="description"
+      content="Computer Science student at UTeM (CGPA 3.83) building functional software, from UI/UX prototypes to secure backends and Google Cloud AI agents."
+    />
+    <meta name="author" content="R. Farihin" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,100..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script>
+      try {
+        var t = localStorage.getItem("theme");
+        if (t === "light" || t === "dark")
+          document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#top" aria-label="Back to top">/</a>
-      <nav id="site-nav" class="site-nav" aria-label="Primary">
-        <a href="#about">/about</a>
-        <a href="#experience">/experience</a>
-        <a href="#education">/education</a>
-        <a href="#projects">/projects</a>
-        <a href="#contact">/contact</a>
-      </nav>
-      <div class="header-actions">
-        <button id="theme-toggle" class="icon-btn" type="button" aria-label="Switch to light theme"><span aria-hidden="true" id="theme-icon">☾</span></button>
-        <button id="nav-toggle" class="icon-btn nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span aria-hidden="true">≡</span></button>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#top" aria-label="Back to top">/</a>
+        <nav id="site-nav" class="site-nav" aria-label="Primary">
+          <a href="./index.html">Portfolio</a>
+          <a href="./links.html">Link</a>
+          <a href="./resume.pdf" target="_blank" rel="noopener noreferrer"
+            >Resume</a
+          >
+          <a href="./blog.html">Blog</a>
+        </nav>
+        <div class="header-actions">
+          <button
+            id="theme-toggle"
+            class="icon-btn"
+            type="button"
+            aria-label="Switch to light theme"
+          >
+            <span aria-hidden="true" id="theme-icon">☾</span>
+          </button>
+          <button
+            id="nav-toggle"
+            class="icon-btn nav-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="site-nav"
+            aria-label="Open menu"
+          >
+            <span aria-hidden="true">≡</span>
+          </button>
+        </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <main id="main-content" class="container">
+    <main id="main-content" class="container">
+      <!-- ========== HERO (banner: images/banner.jpg, photo: images/profile.jpg) ========== -->
+      <section id="top" class="hero">
+        <div class="hero-info">
+          <img
+            class="avatar"
+            src="./images/profile.jpg"
+            alt="Photo of R. Farihin"
+            width="104"
+            height="104"
+            onerror="this.remove()"
+          />
+          <h1>R. Farihin</h1>
+          <p class="subtitle">UI/UX Design &amp; Software Development</p>
+          <h2 class="sr-only">Social Links</h2>
+          <p class="social">
+            <a
+              href="https://linkedin.com/in/raja-farihin/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >linkedin</a
+            >
+            <span aria-hidden="true">/</span>
+            <a
+              href="https://github.com/Rfarihin-dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              >github</a
+            >
+          </p>
+        </div>
+      </section>
 
-    <!-- ========== HERO (gambar profil: images/profile.jpg) ========== -->
-    <section id="top" class="hero">
-      <img class="avatar" src="./images/profile.jpg" alt="Photo of R. Farihin Ikhsan" width="104" height="104" onerror="this.remove()">
-      <div>
-        <h1>R. Farihin Ikhsan</h1>
-        <p class="subtitle">Computer Science Student · UI/UX &amp; Software Development</p>
-        <h2 class="sr-only">Social Links</h2>
-        <p class="social">
-          <a href="https://linkedin.com/in/raja-farihin/" target="_blank" rel="noopener noreferrer">linkedin</a>
-          <span aria-hidden="true">/</span>
-          <a href="https://github.com/Rfarihin-dev" target="_blank" rel="noopener noreferrer">github</a>
-        </p>
-      </div>
-    </section>
-
-    <!-- ========== OVERVIEW ========== -->
-    <section class="box" id="overview">
-      <details class="collapse" open>
-        <summary><h2 class="section-title">Overview</h2></summary>
+      <!-- ========== OVERVIEW ========== -->
+      <section class="box" id="overview">
         <div class="collapse-body">
           <ul class="overview">
-            <li>Diploma in Computer Science student at <a href="#education">Universiti Teknikal Malaysia Melaka (UTeM)</a></li>
-            <li>47130 Puchong, Selangor</li>
+            <li>Computer Science Student @ UTeM</li>
+            <li>Cyberjaya, Selangor, Malaysia</li>
             <li><a href="tel:+601164200566">+601164200566</a></li>
-            <li><a href="mailto:farihin.ikhsan@gmail.com">farihin.ikhsan@gmail.com</a></li>
-            <li><a href="https://linkedin.com/in/raja-farihin/" target="_blank" rel="noopener noreferrer">linkedin.com/in/raja-farihin</a></li>
-            <li><a href="https://github.com/Rfarihin-dev" target="_blank" rel="noopener noreferrer">github.com/Rfarihin-dev</a></li>
-          </ul>
-        </div>
-      </details>
-    </section>
-
-    <!-- ========== ABOUT ========== -->
-    <section class="box" id="about">
-      <details class="collapse" open>
-        <summary><h2 class="section-title">About</h2></summary>
-        <div class="collapse-body">
-          <p>I am a Computer Science student at UTeM with a <strong>CGPA of 3.83</strong> and a strong foundation in software development, web technologies, and UI/UX design.</p>
-          <p>I enjoy turning ideas into functional software, from prototyping user interfaces to building secure backends and experimenting with cloud AI tools on Google Cloud.</p>
-          <p>Recent work includes <strong>Averis SDOC</strong>, an autonomous trade document verification platform that achieved a verified <strong>1.0000 (100%) composite score</strong> across 520 records with zero false clearances. I also built an <strong>AI-driven retail site selection agent</strong> that uses the Model Context Protocol to connect Gemma 4 with Google BigQuery.</p>
-          <p>I'm looking for opportunities to learn, build, and contribute to real-world engineering teams.</p>
-        </div>
-      </details>
-    </section>
-
-    <!-- ========== EXPERIENCE (logo: letak <img class="logo"> di dalam setiap article) ========== -->
-    <section class="box" id="experience">
-      <details class="collapse">
-        <summary><h2 class="section-title">Experience</h2></summary>
-        <div class="collapse-body">
-
-          <article class="entry">
-            <img class="logo" src="./images/averis.png" alt="Averis logo" width="48" height="48" onerror="this.remove()">
-            <h3>Averis x GDG Monash Hackathon</h3>
-            <h4>Competitor &amp; Software Architect</h4>
-            <p class="meta">Sep 2026 · Hackathon</p>
-            <ul class="bullets">
-              <li>Architected an autonomous trade document verification platform (Averis SDOC) in a competitive sprint.</li>
-              <li>Achieved a verified <strong>1.0000 benchmark score</strong> on official evaluation data.</li>
-            </ul>
-            <ul class="tags" aria-label="Technologies"><li>Python</li><li>PostgreSQL (Supabase)</li><li>Vercel</li></ul>
-          </article>
-
-          <article class="entry">
-            <img class="logo" src="./images/um.png" alt="Universiti Malaya logo" width="48" height="48" onerror="this.remove()">
-            <h3>UM Hackathon (Universiti Malaya)</h3>
-            <h4>Competitor &amp; Developer</h4>
-            <p class="meta">Apr 2026 · Hackathon</p>
-            <ul class="bullets">
-              <li>Collaborated in an intensive hackathon sprint to architect and develop a functional MVP solving a real-world problem statement.</li>
-              <li>Contributed to the core logic and UI of the product.</li>
-            </ul>
-          </article>
-
-          <article class="entry">
-           <img class="logo" src="./images/fiverr.png" alt="Fiverr logo" width="48" height="48" style="--pad:0.05rem" data-fill onerror="this.remove()">
-            <h3>Freelance</h3>
-            <h4>UI/UX Designer &amp; Web Developer</h4>
-            <p class="meta">2025 · Freelance</p>
-            <ul class="bullets">
-              <li>Designed end-to-end interactive prototypes and wireframes focused on intuitive navigation and user flow.</li>
-              <li>Built responsive, accessible front-end interfaces from design mockups, optimizing page load times and mobile usability.</li>
-            </ul>
-            <ul class="tags" aria-label="Skills"><li>UI/UX Design</li><li>Wireframing</li><li>Prototyping</li><li>Responsive Design</li><li>Accessibility</li></ul>
-          </article>
-
-        </div>
-      </details>
-    </section>
-
-    <!-- ========== EDUCATION ========== -->
-    <section class="box" id="education">
-      <details class="collapse">
-        <summary><h2 class="section-title">Education</h2></summary>
-        <div class="collapse-body">
-
-          <article class="entry">
-           <div class="utem-logo-wrap">
-  <img class="logo" src="./images/utem.png" alt="UTeM logo" width="48" height="48" onerror="this.parentElement.remove()">
-</div>
-            <h3>Universiti Teknikal Malaysia Melaka (UTeM)</h3>
-            <h4>Diploma in Computer Science</h4>
-            <p class="meta">2025 — Present</p>
-            <ul class="bullets">
-              <li><strong>CGPA: 3.83</strong></li>
-              <li>Dean's List Award (Anugerah Dekan) for Semester 1 and Semester 2.</li>
-            </ul>
-          </article>
-
-          <article class="entry">
-            <img class="logo" src="./images/google-cloud.png" alt="Google Cloud logo" width="48" height="48" onerror="this.remove()">
-            <h3>Google Cloud &amp; Hack2skill</h3>
-            <h4>Google Cloud Gen AI Master Certificate</h4>
-            <p class="meta">Aug 2026</p>
-            <ul class="bullets">
-              <li>Completed specialized training in AI Agent Development Kit (ADK), RAG pipelines, and enterprise data reasoning using Gemma 4 and the BigQuery MCP Server.</li>
-            </ul>
-            <ul class="tags" aria-label="Technologies"><li>AI Agent Development Kit (ADK)</li><li>RAG</li><li>Gemma 4</li><li>BigQuery MCP Server</li></ul>
-          </article>
-
-          <article class="entry">
-            <img class="logo" src="./images/SMKPP.jpg" alt="SMK Putra Perdana logo" width="48" height="48" onerror="this.remove()">
-            <h3>SMK Putra Perdana</h3>
-            <h4>Malaysia Certificate of Education</h4>
-            <p class="meta">2024</p>
-            <ul class="bullets"><li><strong>Grade:</strong> Straight As (1A+, 4A, 3A-)</li></ul>
-          </article>
-
-        </div>
-      </details>
-    </section>
-
-    <!-- ========== PROJECTS (screenshot: letak <img class="card-img"> di atas setiap card) ========== -->
-    <section class="box" id="projects">
-      <details class="collapse">
-        <summary><h2 class="section-title">Projects <span class="count">(2)</span></h2></summary>
-        <div class="collapse-body">
-
-          <article class="card">
-            <img class="card-img" src="./images/averis-screenshot.png" alt="Averis SDOC screenshot" loading="lazy" onerror="this.remove()">
-            <h3>Averis SDOC — Autonomous Trade Document Verification Platform</h3>
-            <p>An autonomous trade document verification platform that cross-audits trade documents through a deterministic reconciliation pipeline, with human review for low-confidence cases.</p>
-            <ul class="bullets">
-              <li>Engineered a deterministic 3-stage reconciliation pipeline that cross-audits <strong>7 mandatory trade fields (SI vs BL)</strong> with automated unit normalization (MT to KG).</li>
-              <li>Achieved a verified <strong>1.0000 (100%) composite score</strong> on <code>score_cli.py</code> across <strong>520 records</strong> with <strong>zero false clearances</strong>.</li>
-              <li>Cut audit turnaround from <strong>~2 hours to 1.24 seconds per record</strong>.</li>
-              <li>Integrated <strong>Human-in-the-Loop</strong> exception handling for low OCR confidence (<strong>&lt;40%</strong>), persisting synchronized relational audit trails to Supabase PostgreSQL.</li>
-            </ul>
-            <ul class="tags" aria-label="Technologies"><li>Python</li><li>PostgreSQL (Supabase)</li><li>Vercel</li></ul>
-          </article>
-
-          <article class="card">
-            <img class="card-img" src="./images/retail-agent-screenshot.png" alt="Retail site selection agent screenshot" loading="lazy" onerror="this.remove()">
-            <h3>AI-Driven Retail Site Selection Agent</h3>
-            <p>An autonomous analytics agent that evaluates and recommends optimal retail and coffee shop locations from spatial, demographic, and foot-traffic data.</p>
-            <ul class="bullets">
-              <li>Developed an autonomous analytics agent to recommend optimal retail and coffee shop locations based on spatial, demographic, and foot-traffic data.</li>
-              <li>Implemented the <strong>Model Context Protocol (MCP)</strong> to bridge Gemma 4 directly with Google BigQuery.</li>
-              <li>Enabled the model to convert plain-language business prompts into structured SQL analytics queries automatically.</li>
-            </ul>
-            <ul class="tags" aria-label="Technologies"><li>Gemma 4</li><li>Google BigQuery</li><li>Model Context Protocol (MCP)</li><li>Python</li></ul>
-          </article>
-
-        </div>
-      </details>
-    </section>
-
-    <!-- ========== TECH STACK ========== -->
-    <section class="box" id="stack">
-      <details class="collapse">
-        <summary><h2 class="section-title">Tech Stack</h2></summary>
-        <div class="collapse-body">
-          <h3 class="subhead">Languages &amp; Core</h3>
-          <ul class="tags"><li>C++</li><li>Python</li><li>SQL</li><li>HTML5</li><li>CSS3</li><li>JavaScript</li></ul>
-          <h3 class="subhead">Cloud, AI &amp; Backend</h3>
-          <ul class="tags"><li>Google Cloud Platform</li><li>Cloud Run</li><li>Secret Manager</li><li>Firebase Auth</li><li>Firestore</li><li>Gemini API</li><li>BigQuery</li><li>RAG Architecture</li></ul>
-          <h3 class="subhead">Developer Tools &amp; Design</h3>
-          <ul class="tags"><li>Git</li><li>GitHub</li><li>Linux / WSL2</li><li>VS Code</li><li>Figma</li><li>Canva</li></ul>
-        </div>
-      </details>
-    </section>
-
-    <!-- ========== LANGUAGES ========== -->
-    <section class="box" id="languages">
-      <details class="collapse">
-        <summary><h2 class="section-title">Languages</h2></summary>
-        <div class="collapse-body">
-          <ul class="overview">
-            <li><strong>Malay:</strong> Native Proficiency</li>
-            <li><strong>English:</strong> Professional Working Proficiency</li>
-          </ul>
-        </div>
-      </details>
-    </section>
-
-    <!-- ========== CONTACT ========== -->
-    <section class="box" id="contact">
-      <details class="collapse">
-        <summary><h2 class="section-title">Contact</h2></summary>
-        <div class="collapse-body">
-          <ul class="overview">
-            <li><strong>Email:</strong> <a href="mailto:farihin.ikhsan@gmail.com">farihin.ikhsan@gmail.com</a>
-              <button id="copy-email" class="copy-btn" type="button" data-email="farihin.ikhsan@gmail.com">Copy</button>
-              <span id="copy-status" class="sr-only" role="status" aria-live="polite"></span>
+            <li>
+              <a href="mailto:farihin.ikhsan@gmail.com"
+                >farihin.ikhsan@gmail.com</a
+              >
             </li>
-            <li><strong>Phone:</strong> <a href="tel:+601164200566">+601164200566</a></li>
-            <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/raja-farihin/" target="_blank" rel="noopener noreferrer">linkedin.com/in/raja-farihin</a></li>
-            <li><strong>GitHub:</strong> <a href="https://github.com/Rfarihin-dev" target="_blank" rel="noopener noreferrer">github.com/Rfarihin-dev</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ========== ABOUT ========== -->
+      <section class="box" id="about">
+        <h2 class="section-title">About</h2>
+        <div class="collapse-body">
+          <p>
+            I am a Computer Science student at UTeM with a
+            <strong>CGPA of 3.83</strong> and a strong foundation in software
+            development, web technologies, and UI/UX design.
+          </p>
+          <p>
+            I enjoy turning ideas into functional software, from prototyping
+            user interfaces to building secure backends and experimenting with
+            cloud AI tools on Google Cloud.
+          </p>
+          <p>
+            Recent work includes <strong>Averis SDOC</strong>, an autonomous
+            trade document verification platform that achieved a verified
+            <strong>1.0000 (100%) composite score</strong> across 520 records
+            with zero false clearances. I also built an
+            <strong>AI-driven retail site selection agent</strong> that uses the
+            Model Context Protocol to connect Gemma 4 with Google BigQuery.
+          </p>
+          <p>
+            I'm looking for opportunities to learn, build, and contribute to
+            real-world engineering teams.
+          </p>
+        </div>
+      </section>
+
+      <!-- ========== EXPERIENCE (logo: letak <img class="logo"> di dalam setiap article) ========== -->
+      <section class="box" id="experience">
+        <h2 class="section-title">Experience</h2>
+        <div class="collapse-body">
+          <article class="entry">
+            <img
+              class="logo"
+              src="./images/averis.png"
+              alt="Averis logo"
+              width="48"
+              height="48"
+              onerror="this.remove()"
+            />
+            <details class="experience-details">
+              <summary><h3>Averis x GDG Monash Hackathon</h3></summary>
+              <div class="experience-content">
+                <h4>Competitor &amp; Software Architect</h4>
+                <p class="meta">Sep 2026 · Hackathon</p>
+                <ul class="bullets">
+                  <li>
+                    Architected an autonomous trade document verification
+                    platform (Averis SDOC) in a competitive sprint.
+                  </li>
+                  <li>
+                    Achieved a verified
+                    <strong>1.0000 benchmark score</strong> on official
+                    evaluation data.
+                  </li>
+                </ul>
+                <ul class="tags" aria-label="Technologies">
+                  <li>Python</li>
+                  <li>PostgreSQL (Supabase)</li>
+                  <li>Vercel</li>
+                </ul>
+              </div>
+            </details>
+          </article>
+
+          <article class="entry">
+            <img
+              class="logo"
+              src="./images/um.png"
+              alt="Universiti Malaya logo"
+              width="48"
+              height="48"
+              onerror="this.remove()"
+            />
+            <details class="experience-details">
+              <summary><h3>UM Hackathon (Universiti Malaya)</h3></summary>
+              <div class="experience-content">
+                <h4>Competitor &amp; Developer</h4>
+                <p class="meta">Apr 2026 · Hackathon</p>
+                <ul class="bullets">
+                  <li>
+                    Collaborated in an intensive hackathon sprint to architect
+                    and develop a functional MVP solving a real-world problem
+                    statement.
+                  </li>
+                  <li>Contributed to the core logic and UI of the product.</li>
+                </ul>
+              </div>
+            </details>
+          </article>
+
+          <article class="entry">
+            <img
+              class="logo"
+              src="./images/fiverr.png"
+              alt="Fiverr logo"
+              width="48"
+              height="48"
+              style="--pad: 0.05rem"
+              data-fill
+              onerror="this.remove()"
+            />
+            <details class="experience-details">
+              <summary><h3>Freelance</h3></summary>
+              <div class="experience-content">
+                <h4>UI/UX Designer &amp; Web Developer</h4>
+                <p class="meta">2025 · Freelance</p>
+                <ul class="bullets">
+                  <li>
+                    Designed end-to-end interactive prototypes and wireframes
+                    focused on intuitive navigation and user flow.
+                  </li>
+                  <li>
+                    Built responsive, accessible front-end interfaces from
+                    design mockups, optimizing page load times and mobile
+                    usability.
+                  </li>
+                </ul>
+                <ul class="tags" aria-label="Skills">
+                  <li>UI/UX Design</li>
+                  <li>Wireframing</li>
+                  <li>Prototyping</li>
+                  <li>Responsive Design</li>
+                  <li>Accessibility</li>
+                </ul>
+              </div>
+            </details>
+          </article>
+        </div>
+      </section>
+
+      <!-- ========== EDUCATION ========== -->
+      <section class="box" id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="collapse-body">
+          <article class="entry">
+            <img
+              class="logo"
+              src="./images/utem.png"
+              alt="UTeM logo"
+              width="48"
+              height="48"
+              onerror="this.remove()"
+            />
+            <details class="item-details">
+              <summary>
+                <h3>Universiti Teknikal Malaysia Melaka (UTeM)</h3>
+              </summary>
+              <div class="item-content">
+                <h4>Diploma in Computer Science</h4>
+                <p class="meta">2025 — Present</p>
+                <ul class="bullets">
+                  <li><strong>CGPA: 3.83</strong></li>
+                  <li>
+                    Dean's List Award (Anugerah Dekan) for Semester 1 and
+                    Semester 2.
+                  </li>
+                </ul>
+              </div>
+            </details>
+          </article>
+
+          <article class="entry">
+            <img
+              class="logo"
+              src="./images/google-cloud.png"
+              alt="Google Cloud logo"
+              width="48"
+              height="48"
+              onerror="this.remove()"
+            />
+            <details class="item-details">
+              <summary><h3>Google Cloud &amp; Hack2skill</h3></summary>
+              <div class="item-content">
+                <h4>Google Cloud Gen AI Master Certificate</h4>
+                <p class="meta">Aug 2026</p>
+                <ul class="bullets">
+                  <li>
+                    Completed specialized training in AI Agent Development Kit
+                    (ADK), RAG pipelines, and enterprise data reasoning using
+                    Gemma 4 and the BigQuery MCP Server.
+                  </li>
+                </ul>
+                <ul class="tags" aria-label="Technologies">
+                  <li>AI Agent Development Kit (ADK)</li>
+                  <li>RAG</li>
+                  <li>Gemma 4</li>
+                  <li>BigQuery MCP Server</li>
+                </ul>
+              </div>
+            </details>
+          </article>
+
+          <article class="entry">
+            <img
+              class="logo"
+              src="./images/SMKPP.jpg"
+              alt="SMK Putra Perdana logo"
+              width="48"
+              height="48"
+              onerror="this.remove()"
+            />
+            <details class="item-details">
+              <summary><h3>SMK Putra Perdana</h3></summary>
+              <div class="item-content">
+                <h4>Malaysia Certificate of Education</h4>
+                <p class="meta">2024</p>
+                <ul class="bullets">
+                  <li><strong>Grade:</strong> Straight As (1A+, 4A, 3A-)</li>
+                </ul>
+              </div>
+            </details>
+          </article>
+        </div>
+      </section>
+
+      <!-- ========== PROJECTS (screenshot: letak <img class="card-img"> di atas setiap card) ========== -->
+      <section class="box" id="projects">
+        <h2 class="section-title">Projects <span class="count">(2)</span></h2>
+        <div class="collapse-body">
+          <article class="entry">
+            <details class="item-details">
+              <summary>
+                <h3>
+                  Averis SDOC — Autonomous Trade Document Verification Platform
+                </h3>
+              </summary>
+              <div class="item-content">
+                <img
+                  class="card-img"
+                  src="./images/averis-screenshot.png"
+                  alt="Averis SDOC screenshot"
+                  loading="lazy"
+                  onerror="this.remove()"
+                />
+                <p>
+                  An autonomous trade document verification platform that
+                  cross-audits trade documents through a deterministic
+                  reconciliation pipeline, with human review for low-confidence
+                  cases.
+                </p>
+                <ul class="bullets">
+                  <li>
+                    Engineered a deterministic 3-stage reconciliation pipeline
+                    that cross-audits
+                    <strong>7 mandatory trade fields (SI vs BL)</strong> with
+                    automated unit normalization (MT to KG).
+                  </li>
+                  <li>
+                    Achieved a verified
+                    <strong>1.0000 (100%) composite score</strong> on
+                    <code>score_cli.py</code> across
+                    <strong>520 records</strong> with
+                    <strong>zero false clearances</strong>.
+                  </li>
+                  <li>
+                    Cut audit turnaround from
+                    <strong>~2 hours to 1.24 seconds per record</strong>.
+                  </li>
+                  <li>
+                    Integrated <strong>Human-in-the-Loop</strong> exception
+                    handling for low OCR confidence (<strong>&lt;40%</strong>),
+                    persisting synchronized relational audit trails to Supabase
+                    PostgreSQL.
+                  </li>
+                </ul>
+                <ul class="tags" aria-label="Technologies">
+                  <li>Python</li>
+                  <li>PostgreSQL (Supabase)</li>
+                  <li>Vercel</li>
+                </ul>
+              </div>
+            </details>
+          </article>
+
+          <article class="entry">
+            <details class="item-details">
+              <summary><h3>AI-Driven Retail Site Selection Agent</h3></summary>
+              <div class="item-content">
+                <img
+                  class="card-img"
+                  src="./images/retail-agent-screenshot.png"
+                  alt="Retail site selection agent screenshot"
+                  loading="lazy"
+                  onerror="this.remove()"
+                />
+                <p>
+                  An autonomous analytics agent that evaluates and recommends
+                  optimal retail and coffee shop locations from spatial,
+                  demographic, and foot-traffic data.
+                </p>
+                <ul class="bullets">
+                  <li>
+                    Developed an autonomous analytics agent to recommend optimal
+                    retail and coffee shop locations based on spatial,
+                    demographic, and foot-traffic data.
+                  </li>
+                  <li>
+                    Implemented the
+                    <strong>Model Context Protocol (MCP)</strong> to bridge
+                    Gemma 4 directly with Google BigQuery.
+                  </li>
+                  <li>
+                    Enabled the model to convert plain-language business prompts
+                    into structured SQL analytics queries automatically.
+                  </li>
+                </ul>
+                <ul class="tags" aria-label="Technologies">
+                  <li>Gemma 4</li>
+                  <li>Google BigQuery</li>
+                  <li>Model Context Protocol (MCP)</li>
+                  <li>Python</li>
+                </ul>
+              </div>
+            </details>
+          </article>
+        </div>
+      </section>
+
+      <!-- ========== TECH STACK ========== -->
+      <section class="box" id="stack">
+        <h2 class="section-title">Tech Stack</h2>
+        <div class="collapse-body">
+          <article class="entry">
+            <details class="item-details">
+              <summary><h3>Languages &amp; Core</h3></summary>
+              <div class="item-content">
+                <ul class="tags">
+                  <li>C++</li>
+                  <li>Python</li>
+                  <li>SQL</li>
+                  <li>HTML5</li>
+                  <li>CSS3</li>
+                  <li>JavaScript</li>
+                </ul>
+              </div>
+            </details>
+          </article>
+          <article class="entry">
+            <details class="item-details">
+              <summary><h3>Cloud, AI &amp; Backend</h3></summary>
+              <div class="item-content">
+                <ul class="tags">
+                  <li>Google Cloud Platform</li>
+                  <li>Cloud Run</li>
+                  <li>Secret Manager</li>
+                  <li>Firebase Auth</li>
+                  <li>Firestore</li>
+                  <li>Gemini API</li>
+                  <li>BigQuery</li>
+                  <li>RAG Architecture</li>
+                </ul>
+              </div>
+            </details>
+          </article>
+          <article class="entry">
+            <details class="item-details">
+              <summary><h3>Developer Tools &amp; Design</h3></summary>
+              <div class="item-content">
+                <ul class="tags">
+                  <li>Git</li>
+                  <li>GitHub</li>
+                  <li>Linux / WSL2</li>
+                  <li>VS Code</li>
+                  <li>Figma</li>
+                  <li>Canva</li>
+                </ul>
+              </div>
+            </details>
+          </article>
+        </div>
+      </section>
+
+      <!-- ========== LANGUAGES ========== -->
+      <section class="box" id="languages">
+        <h2 class="section-title">Languages</h2>
+        <div class="collapse-body">
+          <article class="entry">
+            <h3>Malay</h3>
+            <p>Native Proficiency</p>
+          </article>
+          <article class="entry">
+            <h3>English</h3>
+            <p>Professional Working Proficiency</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ========== CONTACT ========== -->
+      <section class="box" id="contact">
+        <h2 class="section-title">Contact</h2>
+        <div class="collapse-body">
+          <ul class="overview">
+            <li>
+              <strong>Email:</strong>
+              <a href="mailto:farihin.ikhsan@gmail.com"
+                >farihin.ikhsan@gmail.com</a
+              >
+              <button
+                id="copy-email"
+                class="copy-btn"
+                type="button"
+                data-email="farihin.ikhsan@gmail.com"
+              >
+                Copy
+              </button>
+              <span
+                id="copy-status"
+                class="sr-only"
+                role="status"
+                aria-live="polite"
+              ></span>
+            </li>
+            <li>
+              <strong>Phone:</strong>
+              <a href="tel:+601164200566">+601164200566</a>
+            </li>
+            <li>
+              <strong>LinkedIn:</strong>
+              <a
+                href="https://linkedin.com/in/raja-farihin/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >linkedin.com/in/raja-farihin</a
+              >
+            </li>
+            <li>
+              <strong>GitHub:</strong>
+              <a
+                href="https://github.com/Rfarihin-dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                >github.com/Rfarihin-dev</a
+              >
+            </li>
             <li><strong>Location:</strong> 47130 Puchong, Selangor</li>
           </ul>
         </div>
-      </details>
-    </section>
-  </main>
+      </section>
+    </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>© 2026 / <a href="https://github.com/Rfarihin-dev" target="_blank" rel="noopener noreferrer">Raja Farihin Ikhsan bin R Rusli</a></p>
-    </div>
-  </footer>
+    <footer class="site-footer">
+      <div class="container">
+        <p>
+          © 2026 /
+          <a
+            href="https://github.com/Rfarihin-dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Raja Farihin Ikhsan bin R Rusli</a
+          >
+        </p>
+      </div>
+    </footer>
 
-  <script src="./js/main.js" defer></script>
-</body>
+    <script src="./js/main.js" defer></script>
+  </body>
 </html>

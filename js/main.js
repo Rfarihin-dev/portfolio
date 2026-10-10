@@ -137,4 +137,28 @@ if ("scrollRestoration" in history) {
       } else {
     revealEls.forEach(function (el) { el.classList.add("visible"); });
   }
+
+  // Animasi penutupan untuk semua elemen <details>.
+  document.addEventListener("click", function (event) {
+    var summary = event.target.closest("summary");
+    if (!summary) return;
+
+    var details = summary.parentElement;
+    if (!(details instanceof HTMLDetailsElement)) return;
+
+    if (details.classList.contains("is-closing")) {
+      event.preventDefault();
+      return;
+    }
+
+    if (details.open) {
+      event.preventDefault();
+      details.classList.add("is-closing");
+
+      window.setTimeout(function () {
+        details.open = false;
+        details.classList.remove("is-closing");
+      }, window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 1 : 240);
+    }
+  });
 })();
