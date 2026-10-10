@@ -97,28 +97,45 @@ if ("scrollRestoration" in history) {
   }
 
   /* Clipboard copy for email */
-  function announce(msg) {
-    copyBtn.textContent = msg;
-    copyStatus.textContent = msg === "Copied" ? "Email address copied to clipboard" : "Copy failed";
-    setTimeout(function () { copyBtn.textContent = "Copy"; }, 1600);
+  if (copyBtn && copyStatus) {
+    function announce(msg) {
+      copyBtn.textContent = msg;
+      copyStatus.textContent =
+        msg === "Copied" ? "Email address copied to clipboard" : "Copy failed";
+      setTimeout(function () {
+        copyBtn.textContent = "Copy";
+      }, 1600);
+    }
+
+    copyBtn.addEventListener("click", function () {
+      var email = copyBtn.getAttribute("data-email");
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(
+          function () { announce("Copied"); },
+          function () { announce("Failed"); }
+        );
+        return;
+      }
+
+      var ta = document.createElement("textarea");
+      ta.value = email;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "absolute";
+      ta.style.left = "-9999px";
+      document.body.appendChild(ta);
+      ta.select();
+
+      try {
+        announce(document.execCommand("copy") ? "Copied" : "Failed");
+      } catch (e) {
+        announce("Failed");
+      }
+
+      document.body.removeChild(ta);
+    });
   }
 
-  copyBtn.addEventListener("click", function () {
-    var email = copyBtn.getAttribute("data-email");
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(email).then(function () { announce("Copied"); }, function () { announce("Failed"); });
-      return;
-    }
-    var ta = document.createElement("textarea");
-    ta.value = email;
-    ta.setAttribute("readonly", "");
-    ta.style.position = "absolute";
-    ta.style.left = "-9999px";
-    document.body.appendChild(ta);
-    ta.select();
-    try { announce(document.execCommand("copy") ? "Copied" : "Failed"); } catch (e) { announce("Failed"); }
-    document.body.removeChild(ta);
-  });
   /* Fade-up on scroll */
   root.classList.add("js");
   var revealEls = document.querySelectorAll(".hero, .entry, .card");
@@ -161,4 +178,103 @@ if ("scrollRestoration" in history) {
       }, window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 1 : 240);
     }
   });
+
+  // Animated beams background
+  var canvas = document.getElementById("beams-background");
+
+  if (canvas) {
+    var ctx = canvas.getContext("2d");
+    var beams = [];
+    var frameId = 0;
+    var width = 0;
+    var height = 0;
+    var reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    function createBeam() {
+      return {
+        x: Math.random() * width,
+        y: Math.random() * height * 1.5,
+        width: 35 + Math.random() * 65,
+        length: height * 2,
+        angle: -35 + Math.random() * 10,
+        speed: 0.4 + Math.random() * 0.7,
+        opacity: 0.08 + Math.random() * 0.12,
+        hue: 190 + Math.random() * 65,
+        pulse: Math.random() * Math.PI * 2,
+        pulseSpeed: 0.01 + Math.random() * 0.02
+      };
+    }
+
+    function resizeBeams() {
+      var dpr = window.devicePixelRatio || 1;
+      width = window.innerWidth;
+      height = window.innerHeight;
+
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      beams = Array.from({ length: 24 }, createBeam);
+      drawBeams();
+    }
+
+    function drawBeams() {
+      ctx.clearRect(0, 0, width, height);
+      ctx.save();
+      ctx.filter = "blur(24px)";
+
+      beams.forEach(function (beam) {
+        beam.y -= beam.speed;
+        beam.pulse += beam.pulseSpeed;
+
+        if (beam.y + beam.length < -100) {
+          beam.y = height + 100;
+          beam.x = Math.random() * width;
+        }
+
+        var opacity =
+          beam.opacity * (0.8 + Math.sin(beam.pulse) * 0.2);
+
+        ctx.save();
+        ctx.translate(beam.x, beam.y);
+        ctx.rotate((beam.angle * Math.PI) / 180);
+
+        var gradient = ctx.createLinearGradient(0, 0, 0, beam.length);
+        gradient.addColorStop(0, "hsla(" + beam.hue + ", 85%, 65%, 0)");
+        gradient.addColorStop(
+          0.35,
+          "hsla(" + beam.hue + ", 85%, 65%, " + opacity + ")"
+        );
+        gradient.addColorStop(
+          0.6,
+          "hsla(" + beam.hue + ", 85%, 65%, " + opacity + ")"
+        );
+        gradient.addColorStop(1, "hsla(" + beam.hue + ", 85%, 65%, 0)");
+
+        ctx.fillStyle = gradient;
+        ctx.fillRect(-beam.width / 2, 0, beam.width, beam.length);
+        ctx.restore();
+      });
+
+      ctx.restore();
+
+      if (!reduceMotion) {
+        frameId = requestAnimationFrame(drawBeams);
+      }
+    }
+
+    resizeBeams();
+    window.addEventListener("resize", resizeBeams);
+
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) {
+        cancelAnimationFrame(frameId);
+      } else if (!reduceMotion) {
+        drawBeams();
+      }
+    });
+  }
+
 })();
